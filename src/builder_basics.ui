@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <!-- interface-requires gtk+ 3.0 -->
+    <object class="GtkApplicationWindow" id="window">
+        <property name="title" translatable="yes">Cereal Simulation</property>
+        <property name="default_width">500</property>
+        <property name="default_height">250</property>
+        <child>
+            <object class="GtkGrid">
+                <child>
+                    <object class="GtkTextBuffer" id="info">
+                        <property name="text">Enter the amount of simulation loops you want here</property>
+                    </object>
+                    <object class="GtkTextView">
+                        <property name="editable">FALSE</property>
+                        <property name="buffer">info</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkAdjustment" id="adjustment">
+                        <property name="lower">0</property>
+                        <property name="step-increment">1</property>
+                        <property name="upper">100000000</property>
+                    </object>
+                    <object class="GtkSpinButton" id="input">
+                        <property name="adjustment">adjustment</property>
+                        <property name="update-policy">GTK_UPDATE_IF_VALID</property>
+                        <property name="numeric">TRUE</property>
+                        <property name="wrap">TRUE</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkButton" id="submit">
+                        <property name="label">Run Simulation</property>
+                    </object>
+                </child>
+                <child>
+                    <object class="GtkTextView" id="output">
+                        <property name="editable">FALSE</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </object>
+</interface>

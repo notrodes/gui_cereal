@@ -9,5 +9,6 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-gtk = "0.7.0"
-gio = "0.7.0"
+gtk = "0.8.0"
+gio = "0.8.0"
+rand = "0.7.2"

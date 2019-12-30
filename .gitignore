@@ -1,2 +1,4 @@
 **/*.rs.bk
+/src/resources.gresource
+/target
 gtk_hello_world.iml
