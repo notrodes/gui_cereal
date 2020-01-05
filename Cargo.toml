@@ -1,7 +1,7 @@
 [package]
-name = "gtk_hello_world"
+name = "gui_cereal"
 version = "0.1.0"
-authors = ["user-one"]
+authors = ["notrodes"]
 edition = "2018"
 publish = false
 
@@ -12,3 +12,4 @@ publish = false
 gtk = "0.8.0"
 gio = "0.8.0"
 rand = "0.7.2"
+futures = "0.3.1"

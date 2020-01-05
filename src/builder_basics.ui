@@ -35,6 +35,11 @@
                     </object>
                 </child>
                 <child>
+                    <object class="GtkProgressBar" id="progress">
+
+                    </object>
+                </child>
+                <child>
                     <object class="GtkTextView" id="output">
                         <property name="editable">FALSE</property>
                     </object>
