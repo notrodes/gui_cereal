@@ -1,7 +1,9 @@
 use gio::prelude::*;
 use gtk::{prelude::*, Application, ApplicationWindow, Builder, Button, SpinButton, TextView};
-use gui_cereal::cereal_simulation;
+use cereal_lib::simulation;
 use std::env::args;
+
+const NUM_THREADS: i32 = 2;
 
 fn build_app(parent_app: &Application) {
     const UI: &str = include_str!("builder_basics.ui");
@@ -15,14 +17,14 @@ fn build_app(parent_app: &Application) {
     let button: Button = builder.get_object("submit").expect("Could not get submit.");
     button.connect_clicked(move |_| {
         let number_of_loops = spin.get_value_as_int();
-        let (max_tries, min_tries, mean_tries, timer) =
-            cereal_simulation::simulation(number_of_loops, true);
+        let results = simulation(number_of_loops, NUM_THREADS);
+
         println!(
-            "{:?} {:?} {:?} {:?}",
-            max_tries.unwrap_or_default(),
-            min_tries.unwrap_or_default(),
-            mean_tries.unwrap_or_default(),
-            timer.unwrap_or_default(),
+            "Minimum: {:?}, Maximum: {:?}, Median: {:?}, Mean: {:?}",
+            results.min(),
+            results.max(),
+            results.median(),
+            results.mean(),
         );
     });
 }
